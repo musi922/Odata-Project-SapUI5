@@ -11,19 +11,40 @@
 	<Page
 		title="{i18n>appTitle}"
 		id="page">
+		
 		<content>
-			<IllustratedMessage
-				title="{i18n>appTitle}"
-				illustrationType="sapIllus-SuccessHighFive"
-				enableVerticalResponsiveness="true"
-				description="{i18n>appDescription}">
-				<additionalContent>
-					<Button
-						id="helloButton"
-						text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-						press="sayHello" />
-				</additionalContent>
-			</IllustratedMessage>
+		<Table id="odataTable" inset="false" items="{/Products}">
+			<headerToolbar>
+			<Toolbar>
+			<Title text="Product List"/>
+			</Toolbar>
+			</headerToolbar>
+			
+			<columns>
+			<Column >
+			<header>
+			<Label text="ProductName"></Label>
+			</header>
+			</Column>
+			<Column >
+			<header>
+			<Label text="Quantity Per Unit"></Label>
+			</header>
+			</Column>
+			<Column >
+			<header>
+			<Label text="Unit Price"></Label>
+			</header>
+			</Column>
+			</columns>
+			<items>
+			<ColumnListItem >
+			<Text text="{ProductName}"></Text>
+			<Text text="{QuantityPerUnit}"></Text>
+			<Text text="{UnitPrice}"></Text>
+			</ColumnListItem>
+			</items>
+			</Table>
 		</content>
 	</Page>
 
