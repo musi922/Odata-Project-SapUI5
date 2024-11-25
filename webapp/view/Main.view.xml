@@ -10,7 +10,7 @@
 
 	<Page
 		title="{i18n>appTitle}"
-		id="page">
+		id="page" class="sapUiSmallMargin">
 		
 		<content>
 		<Table id="odataTable" inset="false" items="{/Products}">
@@ -23,12 +23,12 @@
 			<columns>
 			<Column >
 			<header>
-			<Label text="ProductName"></Label>
+			<Label text="Product Name"></Label>
 			</header>
 			</Column>
 			<Column >
 			<header>
-			<Label text="Quantity Per Unit"></Label>
+			<Label text="Description"></Label>
 			</header>
 			</Column>
 			<Column >
@@ -36,12 +36,17 @@
 			<Label text="Unit Price"></Label>
 			</header>
 			</Column>
+			<Column >
+			<header>
+			<Label text="Rating"></Label>
+			</header>
+			</Column>
 			</columns>
 			<items>
 			<ColumnListItem >
-			<Text text="{ProductName}"></Text>
-			<Text text="{QuantityPerUnit}"></Text>
-			<Text text="{UnitPrice}"></Text>
+			<Text text="{Name}"></Text>
+			<Text text="{Description}"></Text>
+			<Text text="{}"></Text>
 			</ColumnListItem>
 			</items>
 			</Table>

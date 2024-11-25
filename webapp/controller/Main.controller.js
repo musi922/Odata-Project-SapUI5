@@ -5,22 +5,10 @@ sap.ui.define([
 
 	return BaseController.extend("com.myorg.myapp.controller.Main", {
 		onInit(){
-			var oModel = new ODataModel("http://localhost:3000/odata");
-this.getView().setModel(oModel);
-
-
-			oModel.read("/Products",{
-				success(odata){
-					console.log("Data Loaded Successfully",odata);
-				},
-				error(oError){
-					console.log("We faced Error",oError);
-					
-				}
-			})
-		},	
-		sayHello: function () {
-			MessageBox.show("Hello World!");
+			var oModel = new ODataModel("http://localhost:3000/odata",{
+				maxDataServiceVersion: "3.0" 
+			});
+            this.getView().setModel(oModel);
 		}
 	});
 });
