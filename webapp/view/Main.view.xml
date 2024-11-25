@@ -1,56 +1,59 @@
 <mvc:View
-	controllerName="com.myorg.myapp.controller.Main"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	core:require="{
-		formatter: 'com/myorg/myapp/model/formatter'
-	}">
+    controllerName="com.myorg.myapp.controller.Main"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    core:require="{
+        formatter: 'com/myorg/myapp/model/formatter'
+    }">
 
-	<Page
-		title="{i18n>appTitle}"
-		id="page" class="sapUiSmallMargin">
-		
-		<content>
-		<Table id="odataTable" inset="false" items="{/Products}">
-			<headerToolbar>
-			<Toolbar>
-			<Title text="Product List"/>
-			</Toolbar>
-			</headerToolbar>
-			
-			<columns>
-			<Column >
-			<header>
-			<Label text="Product Name"></Label>
-			</header>
-			</Column>
-			<Column >
-			<header>
-			<Label text="Description"></Label>
-			</header>
-			</Column>
-			<Column >
-			<header>
-			<Label text="Unit Price"></Label>
-			</header>
-			</Column>
-			<Column >
-			<header>
-			<Label text="Rating"></Label>
-			</header>
-			</Column>
-			</columns>
-			<items>
-			<ColumnListItem >
-			<Text text="{Name}"></Text>
-			<Text text="{Description}"></Text>
-			<Text text="{}"></Text>
-			</ColumnListItem>
-			</items>
-			</Table>
-		</content>
-	</Page>
+    <Page
+        title="{i18n>appTitle}"
+        id="page" class="sapUiSmallMargin">
+        
+        <content>
+            <!-- Add a button to create a new category -->
+            <Toolbar>
+                <Button text="Create Category" press="onCreateCategory"/>
+            </Toolbar>
+            
+            <Table id="odataTable" inset="false" items="{/Categories}">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Category List"/>
+                    </Toolbar>
+                </headerToolbar>
+                
+                <columns>
+                    <Column>
+                        <header>
+                            <Label text="Category ID"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Category Name"/>
+                        </header>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem type="Active" press="onPress">
+                        <Text text="{ID}"/> 
+                        <Text text="{Name}"/>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <Panel id="categoryDetailPanel" headerText="Category Details">
+                <VBox>
+                    <Text id="categoryID" text="{ID}"/>
+                    <Text id="categoryName" text="{Name}"/>
+                </VBox>
+            </Panel>
+
+        </content>
+    </Page>
 
 </mvc:View>

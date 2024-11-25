@@ -6,11 +6,14 @@ const app = express();
 
 app.use(cors());
 app.use('/odata', createProxyMiddleware({
-    target: 'https://services.odata.org/V3/(S(hzn4vwyj2pljjfroa0zssf5s))/OData/OData.svc/',
+    target: 'https://services.odata.org/V3/OData/OData.svc',
     changeOrigin: true,
-    pathRewrite: { '^/odata': '' }
+    pathRewrite: {
+        '^/odata': ''
+    }
 }));
 
 app.listen(3000, () => {
     console.log('Proxy server running at http://localhost:3000');
 });
+ 
